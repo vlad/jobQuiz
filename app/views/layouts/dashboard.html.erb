@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JobQuiz Dashboard</title>
+    <%= stylesheet_link_tag    'dashboard', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="hi"></div>
+
+<div class="header">
+    <%= render 'dashboard/session_links' %>
+</div>
+
+<%= render 'dashboard/stage_progress_bar' %>
+
+<%= yield %>
+
+</body>
+</html>

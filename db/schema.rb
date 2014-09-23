@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923074903) do
+ActiveRecord::Schema.define(version: 20140923173924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,25 @@ ActiveRecord::Schema.define(version: 20140923074903) do
     t.datetime "updated_at"
   end
 
+  create_table "quizzes", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "quizzes", ["user_id"], name: "index_quizzes_on_user_id", using: :btree
+
+  create_table "responses", force: true do |t|
+    t.integer  "question_id",                 null: false
+    t.integer  "answer_id"
+    t.boolean  "correct",     default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "responses", ["answer_id"], name: "index_responses_on_answer_id", using: :btree
+  add_index "responses", ["question_id"], name: "index_responses_on_question_id", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "name",                   default: "", null: false
     t.string   "email",                  default: "", null: false
@@ -47,6 +66,7 @@ ActiveRecord::Schema.define(version: 20140923074903) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "aasm_state",                          null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

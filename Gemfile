@@ -40,3 +40,4 @@ gem 'spring',        group: :development
 
 gem 'cocoon'
 gem 'devise'
+gem 'aasm'
