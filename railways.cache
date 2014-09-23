@@ -1,0 +1,25 @@
+                  Prefix Verb   URI Pattern                         Controller#Action
+        new_user_session GET    /users/sign_in(.:format)            devise/sessions#new
+            user_session POST   /users/sign_in(.:format)            devise/sessions#create
+    destroy_user_session GET    /users/sign_out(.:format)           devise/sessions#destroy
+           user_password POST   /users/password(.:format)           devise/passwords#create
+       new_user_password GET    /users/password/new(.:format)       devise/passwords#new
+      edit_user_password GET    /users/password/edit(.:format)      devise/passwords#edit
+                         PATCH  /users/password(.:format)           devise/passwords#update
+                         PUT    /users/password(.:format)           devise/passwords#update
+cancel_user_registration GET    /users/cancel(.:format)             devise/custom_registrations#cancel
+       user_registration POST   /users(.:format)                    devise/custom_registrations#create
+   new_user_registration GET    /users/sign_up(.:format)            devise/custom_registrations#new
+  edit_user_registration GET    /users/edit(.:format)               devise/custom_registrations#edit
+                         PATCH  /users(.:format)                    devise/custom_registrations#update
+                         PUT    /users(.:format)                    devise/custom_registrations#update
+                         DELETE /users(.:format)                    devise/custom_registrations#destroy
+         admin_questions GET    /admin/questions(.:format)          admin/questions#index
+                         POST   /admin/questions(.:format)          admin/questions#create
+      new_admin_question GET    /admin/questions/new(.:format)      admin/questions#new
+     edit_admin_question GET    /admin/questions/:id/edit(.:format) admin/questions#edit
+          admin_question GET    /admin/questions/:id(.:format)      admin/questions#show
+                         PATCH  /admin/questions/:id(.:format)      admin/questions#update
+                         PUT    /admin/questions/:id(.:format)      admin/questions#update
+                         DELETE /admin/questions/:id(.:format)      admin/questions#destroy
+                    root GET    /                                   dashboard/dashboard#index

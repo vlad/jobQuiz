@@ -1,9 +1,9 @@
 class Dashboard::DashboardController < ApplicationController
-  before_action :authenticate_user!, except: [:welcome]
+  before_action :authenticate_user!, except: [:index]
 
   layout 'dashboard'
   
-  def welcome
+  def index
 
   end
 end
