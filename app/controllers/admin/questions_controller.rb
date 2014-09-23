@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::AdminController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   # GET /questions
@@ -29,8 +29,8 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
-        format.json { render :show, status: :created, location: @question }
+        format.html { redirect_to admin_question_path(@question), notice: 'Question was successfully created.' }
+        format.json { render :show, status: :created, location: admin_question_path(@question) }
       else
         format.html { render :new }
         format.json { render json: @question.errors, status: :unprocessable_entity }
@@ -43,8 +43,8 @@ class QuestionsController < ApplicationController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
-        format.json { render :show, status: :ok, location: @question }
+        format.html { redirect_to admin_question_path(@question), notice: 'Question was successfully updated.' }
+        format.json { render :show, status: :ok, location: admin_question_path(@question) }
       else
         format.html { render :edit }
         format.json { render json: @question.errors, status: :unprocessable_entity }
@@ -57,7 +57,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     respond_to do |format|
-      format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
+      format.html { redirect_to admin_questions_url, notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
