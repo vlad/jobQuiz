@@ -1,9 +1,178 @@
-body {
-  
+$base_color: #dde5d5;
+$light_base_color: lighten($base_color, 5%);
+$gray: #ccc;
+$red: #ff4b69;
+$highlight_color: #a0d7ff;
+
+* {
+  box-sizing: Border-box
 }
 
-.stage-progress-bar {
-  .selected {
-    font-weight: 600;
+body {
+  background-color: $base_color;
+  font-family: 'Tahoma';
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 0 15px;
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+}
+
+#error_explanation {
+  padding: 5px;
+
+  h2 {
+    color: $red;
+    margin: 2px 0;
+  }
+
+  ul {
+
+  }
+}
+
+.nav {
+  background-color: black;
+  padding: 2px 15px;
+  text-align: right;
+
+  .name, .have-account {
+    color: $light_base_color;
+    display: inline-block;
+  }
+
+  ul.session-links {
+    display: inline-block;
+    margin: 0 0 0 5px;
+    padding: 0;
+  }
+}
+
+a.btn, input.btn {
+  background-color: $highlight_color;
+  border: none;
+  border-radius: 2px;
+  color: black;
+  display: inline-block;
+  font-size: 15px;
+  padding: 8px 10px;
+  text-decoration: none;
+  margin: 5px 0;
+
+  &:hover {
+    background-color: lighten($highlight_color, 7%);
+  }
+}
+
+ul.stage-progress-bar {
+  display: block;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+
+  li {
+    background-color: rgba($gray, 0.5);
+    border: 2px solid darken($base_color, 5%);
+    display: block;
+    font-size: .8em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: .7em .8em;
+    width: 100%;
+
+    &.selected {
+      background-color: lighten($base_color, 15%);
+      color: darken($base_color, 30%);
+      font-size: .9em;
+      font-weight: 600;
+      padding: .8em;
+    }
+    
+    .time-estimate {
+      display: inline-block;
+    }
+  }
+}
+
+.stage-instructions {
+  margin: 20px 0;
+}
+
+form.new_user {
+  input[type=text], input[type=email], input[type=password], input[type=checkbox] {
+    display: inline-block;
+    margin: 2px auto 4px;
+    font-size: 20px;
+    outline: 1px solid $base_color;
+    padding: 5px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  input[type=checkbox] {
+    width: auto;
+  }
+  
+  label {
+    display: inline-block;
+  }
+}
+
+.start-quiz.btn {
+  width: 100%;
+}
+
+@media only screen and (min-width : 320px) {
+  body {
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .btn {
+    width: auto !important;
+  }
+
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 820px) {
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  ul.stage-progress-bar {
+    width: auto !important;
+
+    li {
+      display: inline-block !important;
+      min-height: 54px !important;
+      text-align: center;
+      vertical-align: middle;
+      width: auto !important;
+
+      .time-estimate {
+        display: block;
+      }
+    }
   }
 }

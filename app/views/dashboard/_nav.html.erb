@@ -1,0 +1,8 @@
+<div class="nav">
+    <% if current_user %>
+      <div class="name"><%= current_user.name %></div>
+    <% else %>
+      <div class="have-account">Already have an account?</div>
+    <% end %>
+    <%= render 'dashboard/session_links' %>
+</div>

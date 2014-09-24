@@ -1,8 +1,10 @@
+<h1>Join Us</h1>
+
 <% if !current_user || (!current_user.active? && !current_user.rejection?) %>
   <ul class="stage-progress-bar">
       <% user_stage_progress_bar().each do |stage| %>
         <li class="<%= stage[:name] %> <%= 'selected' if (current_user && current_user.stage() == stage[:name]) || (!current_user && stage[:name] == 'account') %>">
-            <%= stage[:title] %> <%= "(#{stage[:time_estimate]})" if stage[:time_estimate] %>
+            <%= stage[:title] %> <div class='time-estimate'><%= "(#{stage[:time_estimate]})" if stage[:time_estimate] %></div>
         </li>
       <% end %>
   </ul>

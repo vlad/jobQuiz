@@ -1,5 +1,7 @@
 <% if (current_user) %>
-  <%= render "dashboard/stage_partials/#{current_user.stage()}" %>
+  <div class="stage-instructions">
+      <%= render "dashboard/stage_partials/#{current_user.stage()}" %>
+  </div>
 <% else %>
 
 <% end %>
