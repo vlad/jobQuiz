@@ -1,3 +1,9 @@
-<p>Welcome, <%= current_user.name%>!</p>
-<p>It's time for your quiz.  You have <strong>two minutes</strong> to complete 21 questions.  Ready?</p>
-<input type="button" value="Start Quiz" class="start-quiz btn">
+<% @quiz = current_user.most_recent_quiz %>
+<% if @quiz %>
+  <p>Thank you!</p>
+  <p>You have completed <%= @quiz.completed_responses.count %> of <%= @quiz.question_count %> questions.  We will score your results and contact you shortly.</p>
+<% else %>
+  <p>Welcome, <%= current_user.name%>!</p>
+  <p>It's time for your quiz.  You have <strong>two minutes</strong> to complete 21 questions.  Ready?</p>
+  <a class="start-quiz btn" href="/dashboard/quiz" data-no-turbolink>Start Quiz</a>
+<% end %>

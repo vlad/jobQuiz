@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JobQuiz Quiz</title>
+    <%= stylesheet_link_tag    'dashboard', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.js"></script>
+    <%= csrf_meta_tags %>
+</head>
+<body data-no-turbolink>
+
+<div class="container">
+    <%= yield %>
+</div>
+
+
+</body>
+</html>

@@ -1,3 +1,5 @@
+/* Dashboard */
+
 $base_color: #dde5d5;
 $light_base_color: lighten($base_color, 5%);
 $gray: #ccc;
@@ -134,11 +136,6 @@ form.new_user {
   width: 100%;
 }
 
-@media only screen and (min-width : 320px) {
-  body {
-  }
-}
-
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
   .container {
@@ -149,9 +146,8 @@ form.new_user {
   .btn {
     width: auto !important;
   }
-
-
 }
+
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 820px) {
@@ -172,6 +168,38 @@ form.new_user {
 
       .time-estimate {
         display: block;
+      }
+    }
+  }
+}
+
+/* Quiz Page */
+
+.quiz-page {
+
+  ul.choices {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    li {
+      display: inline-block;
+      width: 50%;
+
+      img {
+        border: 1px solid $light_base_color;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width : 600px) {
+  .quiz-page {
+    ul.choices {
+      li {
+        width: 150px;
       }
     }
   }

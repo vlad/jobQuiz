@@ -15,7 +15,9 @@ class Admin::QuestionsController < Admin::AdminController
   # GET /questions/new
   def new
     @question = Question.new
-    #4.times { @question.answers.build }
+    4.times {
+      @question.answers.build
+    }
   end
 
   # GET /questions/1/edit
@@ -29,6 +31,8 @@ class Admin::QuestionsController < Admin::AdminController
 
     respond_to do |format|
       if @question.save
+        @question.correct_answer_id = @question.answers.first.id
+        @question.save
         format.html { redirect_to admin_question_path(@question), notice: 'Question was successfully created.' }
         format.json { render :show, status: :created, location: admin_question_path(@question) }
       else

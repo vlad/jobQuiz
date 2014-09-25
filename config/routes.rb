@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     resources :dashboard
+    get '/quiz' => 'quiz#take'
+    post '/quiz' => 'quiz#respond'
   end
 
   root 'dashboard/dashboard#index'

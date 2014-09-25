@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :quizzes
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   validates :name, presence: true
@@ -19,5 +21,9 @@ class User < ActiveRecord::Base
 
   def stage
     aasm_state
+  end
+
+  def most_recent_quiz
+    self.quizzes.where("created_at >= ?", 60.days.ago.utc).order("created_at desc").first
   end
 end

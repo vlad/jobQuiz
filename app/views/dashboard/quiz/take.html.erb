@@ -1,0 +1,15 @@
+<div class="quiz-page">
+  <h2><%= @number %>. Choose item: <%= @question.text %></h2>
+
+  <p class="time-left">
+      Time left: <span class="countdown" data-seconds-remaining="<%= @quiz.seconds_remaining %>"></span>
+  </p>
+
+  <ul class="choices">
+      <% @question.answers.shuffle.each do |answer| %>
+        <li><a href="" data-answer-id="<%= answer.id %>" data-response-id="<%= @response.id %>"><img src='<%= answer.image_url %>'></a></li>
+      <% end %>
+  </ul>
+</div>
+
+
