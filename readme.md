@@ -1,6 +1,18 @@
 # Welcome to jobQuiz!#
 
-![jobQuiz](http://i.imgur.com/8fp3res.png)
+![jobQuiz image](http://i.imgur.com/8fp3res.png)
+
+## How to install ##
+
+bundle install
+
+rake db:create && rake db:migrate
+
+rails server
+
+1. Sign up at http://localhost:3000 and visit /admin to create, edit, (or import!) questions.
+2. Visit http://localhost:3000 to view your application stage and start the quiz.
+3. While you are taking the quiz, you will redirect to the quiz (in case your browser crashes and you're confused, etc.)
 
 ## What is it? ##
 

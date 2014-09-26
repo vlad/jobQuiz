@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'devise/custom_registrations' }
 
+  # admin panel #
+
+  get '/admin', to: redirect('/admin/questions')
   namespace :admin do
     match 'questions/import', to: 'questions#import', via: [:get, :post]
     resources :questions
@@ -8,6 +11,9 @@ Rails.application.routes.draw do
     resources :applicants
   end
 
+  # dashboard #
+
+  get '/dashboard', to: redirect('/')
   namespace :dashboard do
     resources :dashboard
     get '/quiz' => 'quiz#take'
