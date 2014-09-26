@@ -4,11 +4,9 @@
 
 ## How to install ##
 
-bundle install
-
-rake db:create && rake db:migrate
-
-rails server
+    bundle install
+    rake db:create && rake db:migrate
+    rails server
 
 1. Sign up at http://localhost:3000 and visit /admin to create, edit, (or import!) questions.
 2. Visit http://localhost:3000 to view your application stage and start the quiz.
@@ -16,19 +14,19 @@ rails server
 
 ## What is it? ##
 
-jobQuiz is an example Rails 4 app of a job application workflow using a finite stage machine.  Applicants are shown the steps required to "join the team" and the amount of time each step will take before they even sign up.
+jobQuiz is an example Rails 4 app demonstrating a **job application workflow** using a finite stage machine.  **Applicants are shown the steps and time required** to "join the team", even before they sign up.
 
-Each section is mobile friendly (applicant's dashboard, actual quiz, session pages, and admin functionality).
+Each page is **mobile friendly** (applicant's dashboard, actual quiz, session pages, and admin functionality).
 
-Admins can import questions from JSON (an example is provided in the UI, and can use the questions JSON provided by the challenge.)  They can also add, edit, and delete questions as expected from a CRUD application.
+Admins can **import questions from JSON** (an example is provided in the UI, and can use the questions JSON provided by the challenge.)  They can also add, edit, and delete questions as expected from a CRUD application.
 
-Users can take a quiz once they are ready, and are allowed one quiz per 60 days.  Once they do, they are shown in the admin "Applicants" section with their gravatar image, score, and email.
+Applicants can **start a quiz when they're ready**, and are allowed one quiz per 60 days.  Once they do, admins can see Applicants with their gravatar image, score, and email.
 
-With every user answer, the response is saved and graded right away using a "correct" field for each response.  If the questions or answers are deleted later, we still remember whether the user's response was correct or not.
+With every user answer, **each response is saved and graded right away** using a "correct" field for each response.  Questions or answers deleted later?  You still **know if the user's response was correct**.
 
-Questions are randomized for every quiz, and will choose less than 21 questions depending on how many available questions there are in the database.  For that reason, the admin panel shows the number of questions correct out of the total number.
+Questions are **randomized for every quiz**, and will choose less than 21 questions depending on how many available questions there are in the database.  For that reason, the admin panel shows the number of questions correct out of the total number.
 
-You could therefore vary the number of questions for future quizzes without affecting results you already collected.  And, each user can take a quiz multiple times, saving history for each quiz.
+You can **change questions or quizzes without affecting existing results**.  Users can also take multiple quizzes, and each history is saved.
 
 ## Roadmap ##
 
