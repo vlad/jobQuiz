@@ -1,0 +1,26 @@
+<h2>Fresh Leads</h2>
+
+<ul class="choices">
+    <% @applicants.each do |applicant| %>
+      <li>
+          <a>
+              <% @quiz = applicant.most_recent_quiz %>
+              <div class="text">
+                  <%= applicant.name %>
+                  <a href="mailto:<%= applicant.email %>"><%= applicant.email %></a>
+                  Quiz Score: <%= @quiz.correct_count %> / <%= @quiz.question_count %>
+
+              </div>
+              <div class="img-box">
+                  <img src='<%= gravatar_url(applicant) %>'>
+              </div>
+          </a>
+      </li>
+    <% end %>
+</ul>
+
+
+
+<br>
+
+

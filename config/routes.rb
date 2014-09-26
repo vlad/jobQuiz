@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'devise/custom_registrations' }
 
   namespace :admin do
+    match 'questions/import', to: 'questions#import', via: [:get, :post]
     resources :questions
+    get '/applicants' => 'applicants#index'
+    resources :applicants
   end
 
   namespace :dashboard do

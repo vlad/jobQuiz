@@ -2,14 +2,21 @@
   <h2><%= @number %>. Choose item: <%= @question.text %></h2>
 
   <p class="time-left">
-      Time left: <span class="countdown" data-seconds-remaining="<%= @quiz.seconds_remaining %>"></span>
+    Time left: <span class="countdown" data-seconds-remaining="<%= @quiz.seconds_remaining %>"></span>
   </p>
 
   <ul class="choices">
-      <% @question.answers.shuffle.each do |answer| %>
-        <li><a href="" data-answer-id="<%= answer.id %>" data-response-id="<%= @response.id %>"><img src='<%= answer.image_url %>'></a></li>
-      <% end %>
+    <% @question.answers.shuffle.each do |answer| %>
+      <li>
+        <a href="" data-answer-id="<%= answer.id %>" data-response-id="<%= @response.id %>">
+          <div class="img-box">
+            <img src='<%= answer.image_url %>'>
+          </div>
+          </a>
+      </li>
+    <% end %>
   </ul>
+
 </div>
 
 

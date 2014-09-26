@@ -4,7 +4,15 @@ class Admin::QuestionsController < Admin::AdminController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    @questions = Question.all.order('created_at DESC')
+  end
+
+  def import
+      if request.post?
+        json = JSON.parse(params[:json])
+        Question.import_from_json(json)
+        redirect_to admin_questions_path
+      end
   end
 
   # GET /questions/1

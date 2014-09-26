@@ -1,0 +1,18 @@
+<h3>Import Questions</h3>
+
+<%= form_tag 'import', :id => 'import-questions' do %>
+  <p>At least one question, at least two answers each, and the first answer the correct one.</p>
+
+  <%= text_area_tag 'json', '
+    {
+      "Cutest Kitten": [
+      "http://placekitten.com/g/200/300",
+      "http://lorempixel.com/300/200/sports/5/",
+      "http://lorempixel.com/300/200/sports/7/",
+      "http://lorempixel.com/300/200/sports/9/"
+      ]
+    }
+    ', rows: 10
+  %>
+  <%= submit_tag 'Import from JSON', class: 'btn stretch-on-phones' %>
+<% end %>

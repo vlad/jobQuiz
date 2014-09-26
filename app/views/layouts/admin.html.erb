@@ -8,11 +8,23 @@
 </head>
 <body>
 
-<div class="header">
-  <%= link_to('Logout', destroy_user_session_path) %>
+<%= render 'dashboard/nav', locals: {title: 'Admin'} %>
+
+<div class="admin container">
+
+  <ul class="tabs">
+    <li class="stretch-50-on-phones<%=' selected' if controller.controller_name == 'questions' %>">
+        <a href="<%= admin_questions_path %>">Questions</a>
+    </li>
+    <li class="stretch-50-on-phones<%=' selected' if controller.controller_name == 'applicants' %>">
+        <a href="<%= admin_applicants_path %>">Applicants</a>
+    </li>
+  </ul>
+
+  <%= yield %>
+
 </div>
 
-<%= yield %>
 
 </body>
 </html>

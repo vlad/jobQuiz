@@ -1,5 +1,5 @@
 class Response < ActiveRecord::Base
   belongs_to :quiz
-  references :question
-  references :answer
+  belongs_to :question
+  belongs_to :answer
 end

@@ -7,7 +7,7 @@ class Quiz < ActiveRecord::Base
   end
 
   def correct_count
-    self.responses.where(:correct?).count
+    self.responses.where(correct: true).count
   end
 
   def completed_responses

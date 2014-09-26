@@ -1,12 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="top-buttons">
+  <%= link_to '< Back to All', admin_questions_path, class: 'btn simple stretch-33-on-phones' %>
+  <%= link_to 'Modify', edit_admin_question_path(@question), class: 'btn simple stretch-33-on-phones' %>
+  <%= link_to 'Delete', admin_question_path(@question), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn simple stretch-33-on-phones' %>
+</div>
 
-<p>
-  <strong>Text:</strong>
-  <%= @question.text %>
-  <% @question.answers.each do |answer| %>
-    <img src="<%= answer.image_url %>">
-  <% end %>
-</p>
+<h2><%= @question.text %>?</h2>
 
-<%= link_to 'Edit', edit_admin_question_path(@question) %> |
-<%= link_to 'Back', admin_questions_path %>
+<ul class="choices">
+    <% @question.answers.each do |answer| %>
+      <li>
+          <a>
+              <% if answer.id == @question.correct_answer_id %>
+                <div class="short text">
+                    Correct Answer
+                </div>
+              <% end %>
+              <div class="img-box">
+                  <img src='<%= answer.image_url %>'>
+              </div>
+          </a>
+      </li>
+    <% end %>
+</ul>

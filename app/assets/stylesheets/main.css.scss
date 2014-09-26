@@ -1,0 +1,232 @@
+$base_color: #dde5d5;
+$light_base_color: lighten($base_color, 5%);
+$gray: #ccc;
+$red: #ff4b69;
+$highlight_color: #a0d7ff;
+
+* {
+  box-sizing: Border-box
+}
+
+body {
+  background-color: $base_color;
+  font-family: 'Tahoma';
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 0 15px;
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+}
+
+#error_explanation {
+  padding: 5px;
+
+  h2 {
+    color: $red;
+    margin: 2px 0;
+  }
+
+  ul {
+
+  }
+}
+
+.nav {
+  background-color: black;
+  padding: 2px 15px;
+  text-align: right;
+
+  .title {
+    color: white;
+    position: absolute;
+    top: 13px;
+  }
+
+  .name, .have-account {
+    color: $light_base_color;
+    display: inline-block;
+  }
+
+  ul.session-links {
+    display: inline-block;
+    margin: 0 0 0 5px;
+    padding: 0;
+  }
+}
+
+a.btn, input.btn {
+  background-color: $highlight_color;
+  border: none;
+  border-radius: 2px;
+  color: black;
+  display: inline-block;
+  font-size: 15px;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 0;
+
+  &:hover {
+    background-color: lighten($highlight_color, 7%);
+  }
+
+  &.simple {
+    background: none;
+
+    text-decoration: underline;
+    @extend .cool-outline;
+  }
+}
+
+.cool-outline {
+  border: 1px solid rgba(black, .2);
+}
+
+ul.tabs {
+  list-style-type: none;
+  padding: 0;
+  margin: 15px 0 10px;
+
+  li {
+    background-color: $gray;
+    display: inline-block;
+    @extend .cool-outline;
+
+    &.selected {
+      background-color: white;
+      font-weight: 600;
+    }
+
+    a {
+      color: black;
+      display: block;
+      padding: 12px 40px;
+      text-align: center;
+      text-decoration: none;
+    }
+  }
+}
+
+form {
+  max-width: 600px;
+}
+
+.stretch-on-phones {
+  width: 100%;
+}
+
+.stretch-33-on-phones {
+  width: 32%;
+}
+
+.stretch-50-on-phones {
+  width: 49%;
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .stretch-on-phones, .stretch-50-on-phones  {
+    width: auto !important;
+  }
+}
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 820px) {
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+/* for both dashboard/quiz and admin/questions grid */
+
+ul.choices {
+  list-style-type: none;
+  margin: 5px 0 0 0;
+  padding: 0;
+  width: 100%;
+
+  li {
+    display: inline-block;
+    position: relative;
+    width: 49%;
+    overflow: hidden;
+
+    a {
+      color: white;
+    }
+
+    .text {
+      background-color: rgba(black, .5);
+      border: 1px solid transparent;
+      bottom: 0;
+      color: white;
+      padding: 4px 8px;
+      position: absolute;
+      width: 100%;
+      height: 38%;
+
+      &.short {
+        height: 20%;
+      }
+    }
+
+    .img-box {
+      height: 180px;
+      width: 100%;
+
+      img {
+        border: 1px solid $light_base_color;
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+@media only screen and (min-width : 600px) {
+  ul.choices {
+    li {
+      width: 180px;
+    }
+  }
+}
+
+/* devise login/register and edit question */
+
+form {
+  input[type=text], input[type=email], input[type=password], input[type=checkbox] {
+    display: inline-block;
+    margin: 2px auto 4px;
+    font-size: 20px;
+    outline: 1px solid $base_color;
+    padding: 5px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  input[type=checkbox] {
+    width: auto;
+  }
+
+  label {
+    display: inline-block;
+  }
+}

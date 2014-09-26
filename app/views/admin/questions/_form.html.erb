@@ -1,29 +1,24 @@
 <%= form_for([:admin, @question]) do |f| %>
   <% if @question.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+        <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
 
-      <ul>
-      <% @question.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+            <% @question.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+        </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :text %><br>
-    <%= f.text_field :text %>
-    <p id="answers">
-      <%= f.fields_for :answers do |answer| %>
-        <%= render 'answer_fields', :f => answer %>
-      <% end %>
+  <%= f.text_field :text, autofocus: true, placeholder: 'Enter question here' %>
 
-      <%= link_to_add_association 'Add answer', f, :answers %>
-    </p>
+  <h2>Answers (Image URLs)</h2>
 
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.fields_for :answers do |answer| %>
+    <%= answer.text_field :image_url, placeholder: "image url" %>
+  <% end %>
+
+  <%= f.submit 'Save Question', class: 'btn' %>
+
 <% end %>
